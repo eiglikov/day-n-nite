@@ -8,6 +8,30 @@ body {
   background: #000;
   overflow: hidden; }
 
+@-webkit-keyframes introOpacity {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes introOpacity {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes introOpacityVideo {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 0.2; } }
+
+@keyframes introOpacityVideo {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 0.2; } }
+
 video {
   position: fixed;
   top: 50%;
@@ -20,6 +44,8 @@ video {
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
   background: url(../images/thumbnail.jpeg) no-repeat;
+  -webkit-animation: 4s ease-in 0s 1 introOpacityVideo;
+          animation: 4s ease-in 0s 1 introOpacityVideo;
   transition: 3s opacity; }
 
 .stopfade {
@@ -47,14 +73,19 @@ video {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
-          user-select: none; }
+          user-select: none;
+  -webkit-animation: 2s ease-in 0s 1 introOpacity forwards;
+          animation: 2s ease-in 0s 1 introOpacity forwards; }
 
 .artist {
   font-family: Yellowtail;
   font-size: 2rem;
   margin-top: -20px;
   letter-spacing: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  opacity: 0;
+  -webkit-animation: 1.5s ease-in 2s 1 introOpacity forwards;
+          animation: 1.5s ease-in 2s 1 introOpacity forwards; }
   .artist a {
     text-decoration: none;
     color: white; }
@@ -71,7 +102,10 @@ video {
   color: #fff;
   border-radius: 3px;
   cursor: pointer;
-  transition: .3s background; }
+  transition: .3s background;
+  opacity: 0;
+  -webkit-animation: 2s ease-in 3s 1 introOpacity forwards;
+          animation: 2s ease-in 3s 1 introOpacity forwards; }
 
 #day-night-btn:hover {
   background: rgba(255, 255, 255, 0.5);
@@ -123,7 +157,7 @@ video {
   text-overflow: clip;
   white-space: pre;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1.2);
-  transition-delay: 1.5s;
+  transition-delay: 1.3s;
   text-shadow: 0 0 3px white, 0 0 1px white, 0 0 0px white, 0 0 40px #03A9F4, 0 0 70px #03A9F4, 0 0 80px #03A9F4, 0 0 100px #03A9F4; }
 
 .button-blue {
@@ -177,7 +211,7 @@ video {
 
 #clock {
   font-family: 'Roboto';
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.5);
   float: right;
   margin: 20px;
   font-size: 20px; }
