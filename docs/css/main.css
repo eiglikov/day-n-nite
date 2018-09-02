@@ -213,7 +213,9 @@ video {
   .title {
     font-size: 5rem; }
   video {
-    opacity: 0.3; } }
+    opacity: 0.50; }
+  .stopfade {
+    opacity: 0.15; } }
 
 @media screen and (max-width: 600px) {
   .title {
