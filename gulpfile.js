@@ -48,7 +48,7 @@ var paths = {
 }.init();
 
 gulp.task('serve', () => {
-  browserSync.init({
+  return browserSync.init({
     server: paths.dist.root,
     open: false,
     notify: false,
@@ -58,7 +58,7 @@ gulp.task('serve', () => {
   });
 });
 
-gulp.task('default-sources',  () => {
+gulp.task('default-sources', (done) => {
 
   gulp.src('./src/partials/head.hbs', { base: './src/partials/' })
   .pipe(replace(/<link id=\"main-style\".*>/g, '<link id="main-style" rel="stylesheet" href="css/main.css">'))
@@ -69,13 +69,15 @@ gulp.task('default-sources',  () => {
   .pipe(replace(/<script id=\"bundle\".*><\/script>/g, '<script id="bundle" src="./js/bundle.js"></script>'))
   .on('error', util.log)
   .pipe(gulp.dest('./src/partials/'));
+
+  done();
 });
 
 /*
 * Development Styles
 */
 gulp.task('styles', () => {
-  gulp.src([paths.src.sass])
+  return gulp.src([paths.src.sass])
   .pipe(sassGlob())
   .on('error', util.log)
   .pipe(sass({
@@ -126,10 +128,10 @@ gulp.task('scss-lint', function() {
 /*
 * Compile handlebars/partials into html
 */
-gulp.task('templates', () => {
+gulp.task('templates', (done) => {
   var opts = {
     ignorePartials: true,
-    batch: ['src/partials', 'src/partials/components', 'src/partials/pages'],
+    batch: ['src/partials'],
   };
 
   gulp.src([paths.src.root + '/pages/*.hbs'])
@@ -141,13 +143,15 @@ gulp.task('templates', () => {
   .on('error', util.log)
   .pipe(gulp.dest(paths.dist.root))
   .pipe(browserSync.reload({stream: true}));
+
+  done();
 });
 
 /*
 * Development bundle all javascript files
 */
 gulp.task('scripts', () => {
-  gulp.src(paths.src.fulljavascript)
+  return gulp.src(paths.src.fulljavascript)
   .pipe(concat('bundle.js'))
   .pipe(gulp.dest(paths.dist.javascript))
   .pipe(browserSync.reload({stream: true}));
@@ -189,37 +193,38 @@ gulp.task('scripts-prod', () => {
 // });
 
 gulp.task('images', () => {
-  gulp.src([paths.src.images])
+  return gulp.src([paths.src.images])
   .pipe(gulp.dest(paths.dist.images));
 });
 
 gulp.task('files', () => {
-  gulp.src([paths.src.files])
+  return gulp.src([paths.src.files])
   .pipe(gulp.dest(paths.dist.root));
 });
 
 gulp.task('raw', () => {
-  gulp.src([paths.raw.root])
+  return gulp.src([paths.raw.root])
   .pipe(gulp.dest(paths.dist.root));
 });
 
 
-gulp.task('cleanup', () => {
+gulp.task('cleanup', (done) => {
   del([paths.dist.css + '/*']);
   del([paths.dist.javascript + '/*']);
   del([paths.dist.tar]);
+  done();
 });
 
 
-gulp.task('watch', () => {
-  gulp.watch('src/scss/**/*.scss', ['styles']);
-  gulp.watch(paths.src.javascript, ['scripts']);
+gulp.task('watch', (done) => {
+  gulp.watch('src/scss/**/*.scss', gulp.series('styles'));
+  gulp.watch(paths.src.javascript, gulp.series('scripts'));
   // gulp.watch('src/scss/**/*.scss', ['styles-prod']);
   // gulp.watch(paths.src.javascript, ['scripts-prod']);
-  gulp.watch(paths.src.templates, ['templates']);
-  gulp.watch(paths.src.images, ['images']);
-  gulp.watch(paths.src.files, ['files']);
-
+  gulp.watch(paths.src.templates, gulp.series('templates'));
+  gulp.watch(paths.src.images, gulp.series('images'));
+  gulp.watch(paths.src.files, gulp.series('files'));
+  done();
 });
 
 var now = new Date();
@@ -235,10 +240,19 @@ gulp.task('tar', () =>
 //   .pipe(ghPages());
 // });
 
-gulp.task('default', ['cleanup', 'default-sources', 'images', 'raw', 'files', 'templates', 'styles', 'scripts',  'watch', 'serve'], function() {
-  console.log('Dev build completed');
-});
+// gulp.task('default', ['cleanup', 'default-sources', 'images', 'raw', 'files', 'templates', 'styles', 'scripts',  'watch', 'serve'], function() {
+//   console.log('Dev build completed');
+// });
+gulp.task('default',
+  gulp.series('cleanup', 'default-sources', 'images', 'raw', 'files', 'templates', 'styles', 'scripts',  'watch', 'serve', function(done) {
+      console.log('Dev build completed');
+      done();
+    })
+);
 
-gulp.task('prod', ['cleanup', 'images', 'raw', 'files', 'templates', 'styles-prod', 'scripts-prod', 'watch', 'serve'], function() {
-  console.log('Prod build completed');
+
+gulp.task('prod', 
+  gulp.series('cleanup', 'images', 'raw', 'files', 'templates', 'styles-prod', 'scripts-prod', 'watch', 'serve'),
+  function() {
+    console.log('Prod build completed');
 });
