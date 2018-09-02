@@ -5,8 +5,8 @@
 
 body {
   margin: 0;
-  background: #000;
-  overflow: hidden; }
+  overflow: hidden;
+  background: black; }
 
 @-webkit-keyframes introOpacity {
   from {
@@ -200,6 +200,7 @@ video {
 
 #clock {
   font-family: 'Roboto';
+  background: trasparent;
   color: rgba(255, 255, 255, 0.5);
   text-align: right;
   margin: 20px;
@@ -209,12 +210,10 @@ video {
           animation: 2s ease-in 4s 1 introOpacity forwards; }
 
 @media screen and (max-device-width: 800px) {
-  html {
-    background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
-  #bgvid {
-    display: none; }
   .title {
-    font-size: 5rem; } }
+    font-size: 5rem; }
+  video {
+    opacity: 0.3; } }
 
 @media screen and (max-width: 600px) {
   .title {

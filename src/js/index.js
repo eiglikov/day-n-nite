@@ -80,7 +80,7 @@ function startTime() {
     h = 12
 
   document.getElementById('clock').innerHTML =
-  h + ":" + m + ":" + s + " " + dn;
+  h + ":" + m + ":" + s;
   var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {

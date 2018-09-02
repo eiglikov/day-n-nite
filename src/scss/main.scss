@@ -5,8 +5,8 @@
 }
 body {
   margin: 0;
-  background: #000;
   overflow: hidden;
+  background: black;
 }
 
 @keyframes introOpacity {
@@ -39,7 +39,6 @@ video {
   opacity: 0.65;
   transition: 3s opacity;
   animation: 4s ease-in 0s 1 introOpacityVideo;
-
 }
 .stopfade {
   opacity: .2;
@@ -182,6 +181,7 @@ video {
 
 #clock {
   font-family: 'Roboto';
+  background: trasparent;
   color: rgba(255,255,255,0.5);
   text-align: right;
   margin: 20px;
@@ -192,9 +192,8 @@ video {
 
 
 @media screen and (max-device-width: 800px) {
-  html { background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
-  #bgvid { display: none; }
   .title {font-size: 5rem;}
+  video { opacity: 0.3;}
 }
 @media screen and (max-width: 600px) {
   // div{width:70%;}
