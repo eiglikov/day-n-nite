@@ -29,18 +29,18 @@ video {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background: url('//demosthenes.info/assets/images/app.jpg') no-repeat;
   background-size: cover;
   transition: 1s opacity;
 }
 .stopfade {
-  opacity: .5;
+  opacity: .2;
 }
 
-#polina {
-  background: rgba(0, 0, 0, 0.3);
+#app {
+  // background: rgba(0, 0, 0, 0.3);
   color: white;
-  padding: 2rem;
+  // padding: 2rem;
   max-width: 100%;
   font-size: 1.2rem;
   margin: 0 auto;
@@ -52,14 +52,14 @@ video {
   transform: translateY(-50%);
 }
 .title {
-  font-family: Monoton;
-  font-weight:100;
-
-  font-size: 3.5rem;
-  // text-transform: uppercase;
+  font-family: Yellowtail;
+  font-weight: 100;
+  font-size: 7rem;
   margin-bottom: 0;
+  cursor: pointer;
+  user-select: none;
+  // text-transform: uppercase;
   // letter-spacing: .3rem;
-  text-transform: uppercase;
 }
 .artist {
   // color: #F3E5F5;
@@ -69,23 +69,39 @@ video {
   letter-spacing: 0;
   margin-bottom: 0;
   // letter-spacing: .3rem;
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
-#polina button {
+#day-night-btn {
   display: block;
-  padding: 1rem 4rem;
+  padding: 0.9rem 4rem;
   border: none;
+  outline: 0;
   margin: 1rem auto;
   font-size: 1.3rem;
-  background: rgba(255,255,255,0.7);
-  // color: #fff;
+  font-family: "Roboto";
+  background: rgba(255,255,255,0.2);
+  color: #fff;
   // background-color: #F3E5F5;
-  color: black;
   border-radius: 3px;
   cursor: pointer;
   transition: .3s background;
 }
-#polina button:hover {
-  background: rgba(0,0,0,0.5);
+#day-night-btn:hover {
+  background: rgba(255,255,255,0.5);
+  color: white;
+}
+
+.day-on {
+  background: rgba(0,0,0,0.4) !important;
+  color: white !important;
+}
+
+.day-on:hover {
+  background: rgba(0,0,0,0.75) !important;
+  color: white !important;
 }
 
 // a {
@@ -96,18 +112,27 @@ video {
 //   padding: .5rem;
 //   transition: .6s background;
 // }
-#soundcloud {
+.soundcloud-container {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+}
+#soundcloud {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
 }
 @media screen and (max-width: 500px) {
-  div{width:70%;}
-  .title {font-size: 3rem;}
+  // div{width:70%;}
+  .title {font-size: 4rem;}
+  #day-night-btn {padding: 0.7rem 2rem; font-size: 1rem; margin-top: 20px;}
 }
 @media screen and (max-device-width: 800px) {
-  html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  html { background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
   #bgvid { display: none; }
+  .title {font-size: 5rem;}
 }
 
 // Neon Glow
@@ -120,15 +145,32 @@ video {
   color: rgba(255,255,255,1);
   text-decoration: normal;
   text-align: center;
-  -o-text-overflow: clip;
   text-overflow: clip;
   white-space: pre;
-  // text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
-  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  // text-shadow: 0 0 3px rgba(255,255,255,1) , 0 0 1px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1.2);
   text-shadow: 0 0 3px rgba(255,255,255,1) , 0 0 1px rgba(255,255,255,1) , 0 0 0px rgba(255,255,255,1) , 0 0 40px #03A9F4 , 0 0 70px #03A9F4 , 0 0 80px #03A9F4 , 0 0 100px #03A9F4 ;
 }
 
 .button-blue {
   // text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
   text-shadow: 0 0 3px white, 0 0 1px white, 0 0 15px white, 0 0 40px #00ffff, 0 0 70px #00ffff, 0 0 80px #00ffff, 0 0 100px #00ffff;
+}
+
+
+.flicker {
+  animation: flicker 3.5s linear infinite alternate;
+  animation-delay: 1.5s;
+}
+
+@keyframes flicker {
+  0% { opacity: .95}
+  1% { opacity: .5}
+  4% { opacity: .95 }
+  5% { opacity: .5}
+  6% { opacity: .95 }
+  10% { opacity: .5}
+  11% { opacity: .95 }
+  15% { opacity: .5}
+  16% { opacity: .95 }
 }
