@@ -35,8 +35,10 @@ video {
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
   background: url(../images/thumbnail.jpeg) no-repeat;
-  animation: 4s ease-in 0s 1 introOpacityVideo;
+  opacity: 0.65;
   transition: 3s opacity;
+  animation: 4s ease-in 0s 1 introOpacityVideo;
+
 }
 .stopfade {
   opacity: .2;
@@ -130,6 +132,8 @@ video {
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: 2s ease-in 4.5s 1 introOpacity forwards;
 }
 @media screen and (max-width: 500px) {
   // div{width:70%;}
@@ -190,4 +194,6 @@ video {
   float: right;
   margin: 20px;
   font-size: 20px;
+  opacity: 0;
+  animation: 2s ease-in 4s 1 introOpacity forwards;
 }

@@ -44,9 +44,10 @@ video {
   -webkit-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
   background: url(../images/thumbnail.jpeg) no-repeat;
+  opacity: 0.65;
+  transition: 3s opacity;
   -webkit-animation: 4s ease-in 0s 1 introOpacityVideo;
-          animation: 4s ease-in 0s 1 introOpacityVideo;
-  transition: 3s opacity; }
+          animation: 4s ease-in 0s 1 introOpacityVideo; }
 
 .stopfade {
   opacity: .2; }
@@ -129,7 +130,10 @@ video {
 #soundcloud {
   margin: 0 auto;
   display: block;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  opacity: 0;
+  -webkit-animation: 2s ease-in 4.5s 1 introOpacity forwards;
+          animation: 2s ease-in 4.5s 1 introOpacity forwards; }
 
 @media screen and (max-width: 500px) {
   .title {
@@ -214,4 +218,7 @@ video {
   color: rgba(255, 255, 255, 0.5);
   float: right;
   margin: 20px;
-  font-size: 20px; }
+  font-size: 20px;
+  opacity: 0;
+  -webkit-animation: 2s ease-in 4s 1 introOpacity forwards;
+          animation: 2s ease-in 4s 1 introOpacity forwards; }
