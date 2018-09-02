@@ -8,7 +8,7 @@ var myAudio2 = document.getElementById('myAudio2');
 var myAudio4 = document.getElementById('myAudio4');
 
 var vid = document.getElementById('bgvid');
-vid.playbackRate = 0.75;
+vid.playbackRate = 0.7;
 
 // get date
 var date = new Date();
@@ -25,22 +25,16 @@ if (hours > 6 && hours < 21) {
   changeDayTime(nightCopy);
 }
 
-// if (window.matchMedia('(prefers-reduced-motion)').matches) {
-//   // vid.removeAttribute('autoplay');
-//   // vid.pause();
-//   button.innerHTML = nightCopy;
+// function vidFade() {
+//   vid.classList.add('stopfade');
 // }
 
-function vidFade() {
-  vid.classList.add('stopfade');
-}
-
-vid.addEventListener('ended', function() {
-  // only functional if 'loop' is removed
-  vid.pause();
-  // to capture IE10
-  vidFade();
-});
+// vid.addEventListener('ended', function() {
+//   // only functional if 'loop' is removed
+//   vid.pause();
+//   // to capture IE10
+//   vidFade();
+// });
 
 
 title.addEventListener('click', function() {
@@ -72,3 +66,43 @@ function changeDayTime(daytime) {
   }
 }
 
+
+
+
+// time
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+
+  var dn="am" 
+  if (h > 12){
+    dn="pm"
+    h = h - 12
+  }
+  if (h == 0)
+    h = 12
+
+  document.getElementById('clock').innerHTML =
+  h + ":" + m + ":" + s + " " + dn;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+function eventFire(el, etype){
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  } else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
+eventFire(document.getElementById('clock'), 'click');

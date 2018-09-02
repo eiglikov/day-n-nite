@@ -1,14 +1,3 @@
-// @import "../../node_modules/bootstrap/scss/bootstrap";
-//
-// @import
-// "base/variables",
-// "base/base",
-// "base/buttons";
-//
-// @import "base/icomoon";
-// @import "components/*";
-//
-// @import "pages/**/*";
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +7,22 @@ body {
   margin: 0;
   background: #000;
   overflow: hidden;
+}
+@keyframes introOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes introOpacityVideo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
 }
 video {
   position: fixed;
@@ -29,9 +34,9 @@ video {
   height: auto;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
-  background: url('//demosthenes.info/assets/images/app.jpg') no-repeat;
-  background-size: cover;
-  transition: 1s opacity;
+  background: url(../images/thumbnail.jpeg) no-repeat;
+  animation: 4s ease-in 0s 1 introOpacityVideo;
+  transition: 3s opacity;
 }
 .stopfade {
   opacity: .2;
@@ -58,17 +63,17 @@ video {
   margin-bottom: 0;
   cursor: pointer;
   user-select: none;
-  // text-transform: uppercase;
-  // letter-spacing: .3rem;
+  animation: 2s ease-in 0s 1 introOpacity forwards;
 }
 .artist {
-  // color: #F3E5F5;
   font-family: Yellowtail;
   font-size: 2rem;
   margin-top: -20px;
   letter-spacing: 0;
   margin-bottom: 0;
-  // letter-spacing: .3rem;
+  opacity: 0;
+  animation: 1.5s ease-in 2s 1 introOpacity forwards;
+
   a {
     text-decoration: none;
     color: white;
@@ -88,6 +93,8 @@ video {
   border-radius: 3px;
   cursor: pointer;
   transition: .3s background;
+  opacity: 0;
+  animation: 2s ease-in 3s 1 introOpacity forwards;
 }
 #day-night-btn:hover {
   background: rgba(255,255,255,0.5);
@@ -142,13 +149,14 @@ video {
   // padding: 10px;
   border: none;
   // font: normal 48px/normal "Warnes", Helvetica, sans-serif;
-  color: rgba(255,255,255,1);
+  color: #f2fbff;
   text-decoration: normal;
   text-align: center;
   text-overflow: clip;
   white-space: pre;
   // text-shadow: 0 0 3px rgba(255,255,255,1) , 0 0 1px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
   transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1.2);
+  transition-delay: 1.3s;
   text-shadow: 0 0 3px rgba(255,255,255,1) , 0 0 1px rgba(255,255,255,1) , 0 0 0px rgba(255,255,255,1) , 0 0 40px #03A9F4 , 0 0 70px #03A9F4 , 0 0 80px #03A9F4 , 0 0 100px #03A9F4 ;
 }
 
@@ -160,7 +168,7 @@ video {
 
 .flicker {
   animation: flicker 3.5s linear infinite alternate;
-  animation-delay: 1.5s;
+  animation-delay: 5s;
 }
 
 @keyframes flicker {
@@ -173,4 +181,13 @@ video {
   11% { opacity: .95 }
   15% { opacity: .5}
   16% { opacity: .95 }
+}
+
+
+#clock {
+  font-family: 'Roboto';
+  color: rgba(255,255,255,0.5);
+  float: right;
+  margin: 20px;
+  font-size: 20px;
 }
