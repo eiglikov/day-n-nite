@@ -140,11 +140,11 @@ krusovice.tools.fadeOut = function(audio, rampTime, targetVolume, tick) {
 var vid = document.getElementById('bgvid');
 var title = document.getElementById('title');
 var night = document.getElementById('night');
-var button = document.getElementById('day-night-btn');
+var dayTimeButton = document.getElementById('day-night-btn');
+var playStopButton = document.getElementById('play-stop-button');
 
-
-var myAudio2 = document.getElementById('myAudio2');
-var myAudio4 = document.getElementById('myAudio4');
+var nightMusic = document.getElementById('nightMusic');
+var dayMusic = document.getElementById('dayMusic');
 
 var vid = document.getElementById('bgvid');
 vid.playbackRate = 0.7;
@@ -153,48 +153,52 @@ vid.playbackRate = 0.7;
 var date = new Date();
 var hours = date.getHours();
 
-// button copy
+// dayTimeButton copy
 var nightCopy = 'Night';
 var dayCopy = 'Day';
 
+// play/stop button copy
+var stopButtonCopy = '&#10074;&#10074;';
+var playButtonCopy = '&#9658;';
+
 // change depending on time of the day
-if (hours > 6 && hours < 21) {
-  changeDayTime(dayCopy);
-} else {
-  changeDayTime(nightCopy);
-}
+// console.log('hours', hours)
+// if (hours > 6 && hours < 21) {
+changeDayTime(nightCopy);
+// } else {
+//   changeDayTime(dayCopy);
+// }
 
 
 title.addEventListener('click', function() {
-  changeDayTime(button.innerHTML);
+  changeDayTime(dayTimeButton.innerHTML);
 })
-button.addEventListener('click', function() {
-  changeDayTime(button.innerHTML);
+dayTimeButton.addEventListener('click', function() {
+  changeDayTime(dayTimeButton.innerHTML);
 })
 
 function toggleLights() {
-  vid.classList.toggle('stopfade');
-  title.classList.toggle('button');
-  button.classList.toggle('day-on');
-  night.classList.toggle('flicker');
+  // if (dayTimeButton.innerHTML === dayCopy) {
+    // console.log("It's still bright outside");
+    vid.classList.toggle('stopfade');
+    title.classList.toggle('neon-glow');
+    dayTimeButton.classList.toggle('day-on');
+    night.classList.toggle('flicker');
+  // }
 }
 
 function changeDayTime(daytime) {
   toggleLights();
-  if (daytime == dayCopy) {
-    // myAudio2.play();
-    // myAudio4.pause();
-    krusovice.tools.fadeOut(myAudio4, 2000);
-    krusovice.tools.fadeIn(myAudio2, 3000);
-
-    button.innerHTML = nightCopy;
+  playStopButton.innerHTML = stopButtonCopy;
+  if (daytime === nightCopy) {
+    krusovice.tools.fadeOut(dayMusic, 2000);
+    krusovice.tools.fadeIn(nightMusic, 3000);
+    dayTimeButton.innerHTML = dayCopy;
   } else {
-    // myAudio2.pause();
-    // myAudio4.play();
-    krusovice.tools.fadeOut(myAudio2, 3000);
-    krusovice.tools.fadeIn(myAudio4, 2000);
+    krusovice.tools.fadeOut(nightMusic, 3000);
+    krusovice.tools.fadeIn(dayMusic, 2000);
 
-    button.innerHTML = dayCopy;
+    dayTimeButton.innerHTML = nightCopy;
   }
 }
 
@@ -210,13 +214,13 @@ function startTime() {
   m = checkTime(m);
   s = checkTime(s);
 
-  var dn="am" 
-  if (h > 12){
-    dn="pm"
-    h = h - 12
-  }
-  if (h == 0)
-    h = 12
+  // var dn="am" 
+  // if (h > 12){
+  //   dn="pm"
+  //   h = h - 12
+  // }
+  // if (h == 0)
+  //   h = 12
 
   document.getElementById('clock').innerHTML =
   h + ":" + m + ":" + s;
@@ -241,23 +245,25 @@ function eventFire(el, etype){
 }
 setTimeout(eventFire(document.getElementById('clock'), 'click'), 5000)
 
+function aud_play_pause() {
+  // if any music playing - turn off
+  if (!dayMusic.paused || !nightMusic.paused) {
+    console.log('stop music')
+    krusovice.tools.fadeOut(dayMusic, 500);
+    krusovice.tools.fadeOut(nightMusic, 500);
+    playStopButton.innerHTML = playButtonCopy;
+    return;
+  }
 
-// audio fade in/out
-function getSoundAndFadeAudio(soundObject) {
-
-  // Set the point in playback that fadeout begins. This is for a 2 second fade out.
-  var fadePoint = soundObject.duration - 2; 
-
-  var fadeAudio = setInterval(function () {
-
-      // Only fade if past the fade out point or not at zero already
-      if ((soundObject.currentTime >= fadePoint) && (soundObject.volume != 0.0)) {
-          soundObject.volume -= 0.1;
-      }
-      // When volume at zero stop all the intervalling
-      if (soundObject.volume === 0.0) {
-          clearInterval(fadeAudio);
-      }
-  }, 200);
-
+  // if nothing plays - turn on the music that suppose to be playing
+  if (dayTimeButton.innerHTML === nightCopy) {
+    console.log('continue dayMusic')
+    krusovice.tools.fadeIn(dayMusic, 1000);
+    krusovice.tools.fadeOut(nightMusic, 1000);
+  } else {
+    console.log('continue nightMusic')
+    krusovice.tools.fadeIn(nightMusic, 1000);
+    krusovice.tools.fadeOut(dayMusic, 1000);
+  }
+  playStopButton.innerHTML = stopButtonCopy;
 }

@@ -20,6 +20,18 @@ body {
   to {
     opacity: 1; } }
 
+@-webkit-keyframes introOpacitySecondary {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.6; } }
+
+@keyframes introOpacitySecondary {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 0.6; } }
+
 @-webkit-keyframes introOpacityVideo {
   0% {
     opacity: 0; }
@@ -76,7 +88,20 @@ video {
       -ms-user-select: none;
           user-select: none;
   -webkit-animation: 2s ease-in 0s 1 introOpacity forwards;
-          animation: 2s ease-in 0s 1 introOpacity forwards; }
+          animation: 2s ease-in 0s 1 introOpacity forwards;
+  display: inline-block;
+  box-sizing: border-box;
+  border: none; }
+
+.neon-glow {
+  color: #f2fbff;
+  text-decoration: normal;
+  text-align: center;
+  text-overflow: clip;
+  white-space: pre;
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1.2);
+  transition-delay: 1.3s;
+  text-shadow: 0 0 3px white, 0 0 1px white, 0 0 0px white, 0 0 40px #03A9F4, 0 0 70px #03A9F4, 0 0 80px #03A9F4, 0 0 100px #03A9F4; }
 
 .artist {
   font-family: Yellowtail;
@@ -120,6 +145,18 @@ video {
   background: rgba(0, 0, 0, 0.75) !important;
   color: white !important; }
 
+#play-stop-button {
+  background: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 35px;
+  outline: 0;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  -webkit-animation: 2s ease-in 4s 1 introOpacitySecondary forwards;
+          animation: 2s ease-in 4s 1 introOpacitySecondary forwards; }
+
 .soundcloud-container {
   position: absolute;
   bottom: 0;
@@ -133,21 +170,8 @@ video {
   margin-bottom: 20px;
   height: 30px;
   opacity: 0;
-  -webkit-animation: 2s ease-in 4.5s 1 introOpacity forwards;
-          animation: 2s ease-in 4.5s 1 introOpacity forwards; }
-
-.button {
-  display: inline-block;
-  box-sizing: border-box;
-  border: none;
-  color: #f2fbff;
-  text-decoration: normal;
-  text-align: center;
-  text-overflow: clip;
-  white-space: pre;
-  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1.2);
-  transition-delay: 1.3s;
-  text-shadow: 0 0 3px white, 0 0 1px white, 0 0 0px white, 0 0 40px #03A9F4, 0 0 70px #03A9F4, 0 0 80px #03A9F4, 0 0 100px #03A9F4; }
+  -webkit-animation: 2s ease-in 4s 1 introOpacitySecondary forwards;
+          animation: 2s ease-in 4s 1 introOpacitySecondary forwards; }
 
 .button-blue {
   text-shadow: 0 0 3px white, 0 0 1px white, 0 0 15px white, 0 0 40px #00ffff, 0 0 70px #00ffff, 0 0 80px #00ffff, 0 0 100px #00ffff; }
