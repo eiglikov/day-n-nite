@@ -100,7 +100,7 @@ function eventFire(el, etype){
     el.dispatchEvent(evObj);
   }
 }
-eventFire(document.getElementById('clock'), 'click');
+setTimeout(eventFire(document.getElementById('clock'), 'click'), 5000)
 
 
 // audio fade in/out
