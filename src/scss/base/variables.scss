@@ -1,0 +1,63 @@
+$font-primary: 'Encode Sans Condensed', sans-serif;
+$font-secondary: "Open Sans", sans-serif;
+
+
+// colors from Bjoern
+$blue-secondary: #12364C;
+$blue-primary: #40BDED;
+
+$translucent-white-light: rgba(255, 255, 255, 0.5);
+$translucent-white: rgba(255, 255, 255, 0.8);
+$blue-highlight: rgba(214,238,240,0.5);
+$blue-highlight-deep: rgba(214,238,240,1);
+$teal-highlight: rgba(18,54,76,0.5);
+
+$blue-dark: #0097C2;
+$blue-main: #4AC1EF;
+$blue-bright: #00BFEC;
+
+$blue-light: #73CCEA;
+$blue-lighter: #AEEFF4;
+$blue-lightest: #D6EEF0;
+
+
+$light: #E6F0F0;
+$grey: #A0999E;
+$black: #000;
+$white: #FFF;
+$lightgrey: #D3D3D3;
+
+$zindex-bg-poly: -4;
+$zindex-top-bar: -3;
+$zindex-network: -2;
+$zindex-content: -1;
+$zindex-dropdown: 15;
+
+
+
+
+
+$whitespace: (
+xxxx-large: 8rem,
+xxx-large: 6.5rem,
+xx-large: 5rem,
+x-large: 3.7rem,
+large: 3rem,
+x-medium: 2.25rem,
+medium: 2rem,
+small: 1.2rem,
+x-small: 0.7rem,
+xx-small: 0.25rem
+);
+
+$font-size: (
+default: '16px/1.35',
+xxx-large: '18rem/0.9',
+xx-large: '8rem/1.05',
+x-large: '5rem/1.0',
+large: '3rem/1.2',
+x-medium: '2.2rem/1.2',
+medium: '1.2rem/1.4',
+small: '1rem/1.6',
+tiny: '0.8rem/1.0'
+);
