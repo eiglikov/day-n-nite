@@ -1,14 +1,7 @@
 # Day-n-Night
-Simple Art project for music producer. You can switch between day and night moods by clicking a button.
+Simple Art project for music producer. You can switch between day and night moods by clicking a button.  
+[Live Demo](https://erik-iglikov.github.io/day-n-night/)
 > Note: work still in progress
-
-Features:
-* Gulp
-* Handlebars templating
-* Sass/SCSS
-* eslint and scss-lint
-* ES6 minification & bundling
-* Live injection/reload with BrowserSync 
 
 ### Getting Started
 
@@ -51,3 +44,10 @@ BrowserSync will automagically inject any changes you make to the stylesheets. Y
 - Erik Iglikov
 
 
+### Technologies
+* Gulp
+* Handlebars templating
+* Sass/SCSS
+* eslint and scss-lint
+* ES6 minification & bundling
+* Live injection/reload with BrowserSync 
