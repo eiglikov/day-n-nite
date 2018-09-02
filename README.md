@@ -1,12 +1,11 @@
 # day-n-nite
 Simple Art project for music producer
+> Note: work still in progress
 
 Features:
 * Gulp
 * Handlebars templating
 * Sass/SCSS
-* Bootstrap 4
-* GSAP
 * eslint and scss-lint
 * ES6 minification & bundling
 * Live injection/reload with BrowserSync 
