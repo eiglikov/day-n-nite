@@ -191,16 +191,15 @@ video {
 }
 
 
-
+@media screen and (max-device-width: 800px) {
+  html { background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+  .title {font-size: 5rem;}
+}
 @media screen and (max-width: 600px) {
   // div{width:70%;}
   .title {font-size: 3.5rem;}
   #day-night-btn {padding: 0.7rem 2rem; font-size: 1rem; margin-top: 20px;}
   #clock {text-align: center;}
   #soundcloud {height: 20px;}
-}
-@media screen and (max-device-width: 800px) {
-  html { background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
-  #bgvid { display: none; }
-  .title {font-size: 5rem;}
 }

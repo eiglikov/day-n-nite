@@ -208,6 +208,14 @@ video {
   -webkit-animation: 2s ease-in 4s 1 introOpacity forwards;
           animation: 2s ease-in 4s 1 introOpacity forwards; }
 
+@media screen and (max-device-width: 800px) {
+  html {
+    background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
+  #bgvid {
+    display: none; }
+  .title {
+    font-size: 5rem; } }
+
 @media screen and (max-width: 600px) {
   .title {
     font-size: 3.5rem; }
@@ -219,11 +227,3 @@ video {
     text-align: center; }
   #soundcloud {
     height: 20px; } }
-
-@media screen and (max-device-width: 800px) {
-  html {
-    background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
-  #bgvid {
-    display: none; }
-  .title {
-    font-size: 5rem; } }
