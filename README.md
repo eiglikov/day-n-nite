@@ -1,9 +1,6 @@
 # day-n-nite
 Simple Art project for music producer
 
-
-AION Website
-
 Features:
 * Gulp
 * Handlebars templating
