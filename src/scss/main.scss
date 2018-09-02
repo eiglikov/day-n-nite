@@ -193,8 +193,16 @@ video {
 
 @media screen and (max-device-width: 800px) {
   .title {font-size: 5rem;}
-  video { opacity: 0.50;}
+  video { opacity: 0.50; animation: 4s ease-in 0s 1 introOpacityVideo;}
   .stopfade { opacity: 0.15;}
+  @keyframes introOpacityVideo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
 }
 @media screen and (max-width: 600px) {
   // div{width:70%;}
