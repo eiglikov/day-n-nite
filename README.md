@@ -1,5 +1,5 @@
-# day-n-nite
-Simple Art project for music producer
+# Day-n-Night
+Simple Art project for music producer. You can switch between day and night moods by clicking a button.
 > Note: work still in progress
 
 Features:
