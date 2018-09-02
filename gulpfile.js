@@ -27,7 +27,7 @@ var paths = {
   src: { root: 'src' },
   images: { root: 'images'},
   raw: { root: 'raw/**/*' },
-  dist: { root: 'dist' },
+  dist: { root: 'docs' },
   init: function() {
     this.src.sass        = this.src.root + '/scss/main.scss';
     this.src.templates   = this.src.root + '/**/*.hbs';
