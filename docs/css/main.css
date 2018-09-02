@@ -24,13 +24,13 @@ body {
   from {
     opacity: 0; }
   to {
-    opacity: 0.6; } }
+    opacity: 0.35; } }
 
 @keyframes introOpacitySecondary {
   from {
     opacity: 0; }
   to {
-    opacity: 0.6; } }
+    opacity: 0.35; } }
 
 @-webkit-keyframes introOpacityVideo {
   0% {
@@ -43,6 +43,46 @@ body {
     opacity: 0; }
   100% {
     opacity: 0.2; } }
+
+@-webkit-keyframes flicker {
+  0% {
+    opacity: .95; }
+  1% {
+    opacity: .5; }
+  4% {
+    opacity: .95; }
+  5% {
+    opacity: .5; }
+  6% {
+    opacity: .95; }
+  10% {
+    opacity: .5; }
+  11% {
+    opacity: .95; }
+  15% {
+    opacity: .5; }
+  16% {
+    opacity: .95; } }
+
+@keyframes flicker {
+  0% {
+    opacity: .95; }
+  1% {
+    opacity: .5; }
+  4% {
+    opacity: .95; }
+  5% {
+    opacity: .5; }
+  6% {
+    opacity: .95; }
+  10% {
+    opacity: .5; }
+  11% {
+    opacity: .95; }
+  15% {
+    opacity: .5; }
+  16% {
+    opacity: .95; } }
 
 video {
   position: fixed;
@@ -181,46 +221,6 @@ video {
           animation: flicker 3.5s linear infinite alternate;
   -webkit-animation-delay: 5s;
           animation-delay: 5s; }
-
-@-webkit-keyframes flicker {
-  0% {
-    opacity: .95; }
-  1% {
-    opacity: .5; }
-  4% {
-    opacity: .95; }
-  5% {
-    opacity: .5; }
-  6% {
-    opacity: .95; }
-  10% {
-    opacity: .5; }
-  11% {
-    opacity: .95; }
-  15% {
-    opacity: .5; }
-  16% {
-    opacity: .95; } }
-
-@keyframes flicker {
-  0% {
-    opacity: .95; }
-  1% {
-    opacity: .5; }
-  4% {
-    opacity: .95; }
-  5% {
-    opacity: .5; }
-  6% {
-    opacity: .95; }
-  10% {
-    opacity: .5; }
-  11% {
-    opacity: .95; }
-  15% {
-    opacity: .5; }
-  16% {
-    opacity: .95; } }
 
 #clock {
   font-family: 'Roboto';
