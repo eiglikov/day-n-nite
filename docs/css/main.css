@@ -131,25 +131,10 @@ video {
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
+  height: 30px;
   opacity: 0;
   -webkit-animation: 2s ease-in 4.5s 1 introOpacity forwards;
           animation: 2s ease-in 4.5s 1 introOpacity forwards; }
-
-@media screen and (max-width: 500px) {
-  .title {
-    font-size: 4rem; }
-  #day-night-btn {
-    padding: 0.7rem 2rem;
-    font-size: 1rem;
-    margin-top: 20px; } }
-
-@media screen and (max-device-width: 800px) {
-  html {
-    background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
-  #bgvid {
-    display: none; }
-  .title {
-    font-size: 5rem; } }
 
 .button {
   display: inline-block;
@@ -216,9 +201,29 @@ video {
 #clock {
   font-family: 'Roboto';
   color: rgba(255, 255, 255, 0.5);
-  float: right;
+  text-align: right;
   margin: 20px;
   font-size: 20px;
   opacity: 0;
   -webkit-animation: 2s ease-in 4s 1 introOpacity forwards;
           animation: 2s ease-in 4s 1 introOpacity forwards; }
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 3.5rem; }
+  #day-night-btn {
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    margin-top: 20px; }
+  #clock {
+    text-align: center; }
+  #soundcloud {
+    height: 20px; } }
+
+@media screen and (max-device-width: 800px) {
+  html {
+    background: url(images/thumbnail.png) #000 no-repeat center center fixed; }
+  #bgvid {
+    display: none; }
+  .title {
+    font-size: 5rem; } }
