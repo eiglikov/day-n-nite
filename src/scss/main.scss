@@ -86,7 +86,8 @@ body {
 .cover-image {
   width: 100%;
   height: 100%;
-  animation: 1.5s ease-in 0s 1 introOpacity forwards;
+  opacity: 0;
+  animation: 2s ease-out 0s 1 introOpacity forwards;
   // transition-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);
 }
 
@@ -94,7 +95,7 @@ body {
   margin-top: 4px;
   max-width: 100%;
   opacity: 0;
-  animation: 1.5s ease-in 1.33s 1 introOpacity forwards;
+  animation: 1.8s ease-out 1.33s 1 introOpacity forwards;
 }
 
 #cover-sc {
@@ -108,7 +109,7 @@ body {
   margin: 0 auto;
   width: 100%;
   opacity: 0;
-  animation: 1s ease-in 2.33s 1 introOpacity forwards;
+  animation: 1s ease-out 2.33s 1 introOpacity forwards;
 }
 #soundcloud {
   margin: 0 auto;
