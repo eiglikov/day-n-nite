@@ -6,7 +6,7 @@
 body {
   margin: 0;
   overflow: hidden;
-  background: black; }
+  background: #020104; }
 
 @-webkit-keyframes introOpacity {
   from {
@@ -20,17 +20,29 @@ body {
   to {
     opacity: 1; } }
 
+@-webkit-keyframes jumpIn {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+@keyframes jumpIn {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
 @-webkit-keyframes introOpacitySecondary {
   from {
     opacity: 0; }
   to {
-    opacity: 0.35; } }
+    opacity: 0.65; } }
 
 @keyframes introOpacitySecondary {
   from {
     opacity: 0; }
   to {
-    opacity: 0.35; } }
+    opacity: 0.65; } }
 
 @-webkit-keyframes introOpacityVideo {
   0% {
@@ -84,162 +96,68 @@ body {
   16% {
     opacity: .95; } }
 
-video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  background: url(../images/thumbnail.jpeg) no-repeat;
-  opacity: 0.65;
-  transition: 3s opacity;
-  -webkit-animation: 4s ease-in 0s 1 introOpacityVideo;
-          animation: 4s ease-in 0s 1 introOpacityVideo; }
-
 .stopfade {
   opacity: .2; }
 
 #app {
   color: white;
-  max-width: 100%;
   font-size: 1.2rem;
   margin: 0 auto;
-  text-align: center;
-  position: absolute;
   width: 100%;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%); }
 
-.title {
-  font-family: Yellowtail;
-  font-weight: 100;
-  font-size: 7rem;
-  margin-bottom: 0;
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-animation: 2s ease-in 0s 1 introOpacity forwards;
-          animation: 2s ease-in 0s 1 introOpacity forwards;
-  display: inline-block;
-  box-sizing: border-box;
-  border: none; }
-
-.neon-glow {
-  color: #f2fbff;
-  text-decoration: normal;
-  text-align: center;
-  text-overflow: clip;
-  white-space: pre;
-  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1.2);
-  transition-delay: 1.3s;
-  text-shadow: 0 0 3px white, 0 0 1px white, 0 0 0px white, 0 0 40px #03A9F4, 0 0 70px #03A9F4, 0 0 80px #03A9F4, 0 0 100px #03A9F4; }
-
-.artist {
-  font-family: Yellowtail;
-  font-size: 2rem;
-  margin-top: -20px;
-  letter-spacing: 0;
-  margin-bottom: 0;
-  opacity: 0;
-  -webkit-animation: 1.5s ease-in 2s 1 introOpacity forwards;
-          animation: 1.5s ease-in 2s 1 introOpacity forwards; }
-  .artist a {
-    text-decoration: none;
-    color: white; }
-
-#day-night-btn {
-  display: block;
-  padding: 0.9rem 4rem;
-  border: none;
-  outline: 0;
-  margin: 1rem auto;
-  font-size: 1.3rem;
-  font-family: "Roboto";
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: .3s background;
-  opacity: 0;
-  -webkit-animation: 2s ease-in 3s 1 introOpacity forwards;
-          animation: 2s ease-in 3s 1 introOpacity forwards; }
-
-#day-night-btn:hover {
-  background: rgba(255, 255, 255, 0.5);
-  color: white; }
-
-.day-on {
-  background: rgba(0, 0, 0, 0.4) !important;
-  color: white !important; }
-
-.day-on:hover {
-  background: rgba(0, 0, 0, 0.75) !important;
-  color: white !important; }
-
-#play-stop-button {
-  background: 0;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 35px;
-  outline: 0;
+#background-img {
+  background-image: url("../images/LARRY_MIXTAPE_COVER.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(16px);
+          filter: blur(16px);
   opacity: 0;
-  -webkit-animation: 2s ease-in 4s 1 introOpacitySecondary forwards;
-          animation: 2s ease-in 4s 1 introOpacitySecondary forwards; }
+  -webkit-animation: 5s ease-in 1s 0.35 introOpacity forwards;
+          animation: 5s ease-in 1s 0.35 introOpacity forwards; }
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: 1.5s ease-in 0s 1 introOpacity forwards;
+          animation: 1.5s ease-in 0s 1 introOpacity forwards; }
+
+#sc-player {
+  margin-top: 4px;
+  max-width: 100%;
+  opacity: 0;
+  -webkit-animation: 1.5s ease-in 1.33s 1 introOpacity forwards;
+          animation: 1.5s ease-in 1.33s 1 introOpacity forwards; }
+
+#cover-sc {
+  margin: auto;
+  width: 30%; }
 
 .soundcloud-container {
   position: absolute;
   bottom: 0;
   margin: 0 auto;
   width: 100%;
-  display: block; }
+  opacity: 0;
+  -webkit-animation: 1s ease-in 2.33s 1 introOpacity forwards;
+          animation: 1s ease-in 2.33s 1 introOpacity forwards; }
 
 #soundcloud {
   margin: 0 auto;
   display: block;
   margin-bottom: 20px;
-  height: 30px;
-  opacity: 0;
-  -webkit-animation: 2s ease-in 4s 1 introOpacitySecondary forwards;
-          animation: 2s ease-in 4s 1 introOpacitySecondary forwards; }
-
-.button-blue {
-  text-shadow: 0 0 3px white, 0 0 1px white, 0 0 15px white, 0 0 40px #00ffff, 0 0 70px #00ffff, 0 0 80px #00ffff, 0 0 100px #00ffff; }
-
-.flicker {
-  -webkit-animation: flicker 3.5s linear infinite alternate;
-          animation: flicker 3.5s linear infinite alternate;
-  -webkit-animation-delay: 5s;
-          animation-delay: 5s; }
-
-#clock {
-  font-family: 'Roboto';
-  background: trasparent;
-  color: rgba(255, 255, 255, 0.5);
-  text-align: right;
-  margin: 20px;
-  font-size: 20px;
-  opacity: 0;
-  -webkit-animation: 2s ease-in 4s 1 introOpacity forwards;
-          animation: 2s ease-in 4s 1 introOpacity forwards; }
+  height: 30px; }
 
 @media screen and (max-device-width: 800px) {
-  .title {
-    font-size: 5rem; }
-  video {
-    opacity: 0.50;
-    -webkit-animation: 4s ease-in 0s 1 introOpacityVideo;
-            animation: 4s ease-in 0s 1 introOpacityVideo; }
+  #cover-sc {
+    width: 75%; }
   .stopfade {
     opacity: 0.15; }
   @-webkit-keyframes introOpacityVideo {
@@ -253,14 +171,6 @@ video {
     100% {
       opacity: 0.15; } } }
 
-@media screen and (max-width: 600px) {
-  .title {
-    font-size: 3.5rem; }
-  #day-night-btn {
-    padding: 0.7rem 2rem;
-    font-size: 1rem;
-    margin-top: 20px; }
-  #clock {
-    text-align: center; }
-  #soundcloud {
-    height: 20px; } }
+@media screen and (max-device-width: 600px) {
+  #cover-sc {
+    width: 85%; } }
