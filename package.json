@@ -23,7 +23,7 @@
     "browser-sync": "^2.26.12",
     "del": "^1.2.0",
     "eslint": "^4.6.1",
-    "gsap": "^1.20.2",
+    "gsap": "^3.6.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^2.2.0",
     "gulp-babel": "^6.1.0",
